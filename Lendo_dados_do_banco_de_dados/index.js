@@ -17,11 +17,11 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 app.post("/register/save", (req, res)=>{
-    const { title, pageqty} = req.body
+    const { name, pageqty} = req.body
 
     const query = 
-    `INSERT INTO books (title, pageqty)
-    VALUES (' ${title}', ' ${pageqty}')
+    `INSERT INTO books (name, pageqty)
+    VALUES (' ${name}', ' ${pageqty}')
     `
     conn.query(query, (error) => {
         if (error){
@@ -56,7 +56,7 @@ app.get('/', (req, res) =>{
 const conn = mysql.createConnection({
     host:"localhost",
     user: "root",
-    password: "Vingadores1@",
+    password: "root",
     database: "nodemysql",
     port: 3306
 
